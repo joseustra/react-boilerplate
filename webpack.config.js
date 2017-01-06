@@ -1,4 +1,5 @@
 var webpack = require('webpack');
+var path = require('path');
 
 module.exports = {
     entry: [
@@ -23,6 +24,7 @@ module.exports = {
         root: __dirname,
         alias: {
             Main: 'app/components/Main.jsx',
+            Nav: 'app/components/Nav.jsx',
             applicationStyles: 'app/styles/app.scss'
         },
         extensions: ['', '.js', '.jsx']
@@ -39,5 +41,10 @@ module.exports = {
             }
         ]
     },
+		sassLoader: {
+			includePaths: [
+				path.resolve(__dirname, './node_modules/foundation-sites/scss')	
+			]
+		},
     devtool: 'inline-source-map'
 };
